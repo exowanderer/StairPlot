@@ -24,9 +24,8 @@ def stairPlot(data, fig=None, ax=None, clearAx=True, **kwargs):
             # scatter column_j on the x-axis vs colmn_i on the y-axis
             if i > j:
                 ax[i][j].scatter(data[:,j], data[:,i], **kwargs)
-            if i > j:
-                ax[i][j].set_axis(False)
-            
+            if i < j:
+                ax[i][j].set_visible(False)
             # unless i == j, in which case show the histogram or KDE
             if i == j:
                 ax[i][j].hist(data[:,i], bins=data[:,i].size//10, normed=True)
